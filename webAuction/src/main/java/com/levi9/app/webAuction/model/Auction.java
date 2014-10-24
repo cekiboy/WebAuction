@@ -20,6 +20,8 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.OrderBy;
+import org.springframework.format.annotation.NumberFormat;
+import org.springframework.format.annotation.NumberFormat.Style;
 
 /**
  * Auction model class
@@ -53,7 +55,7 @@ public class Auction extends AbstractBaseEntity {
 	 * starting price
 	 */
 	@Column(nullable = false)
-//	@NumberFormat(style = Style.CURRENCY)
+	@NumberFormat(style = Style.CURRENCY)
 	@Min(1)
 	private double startPrice;
 	

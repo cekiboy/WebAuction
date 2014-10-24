@@ -28,10 +28,10 @@
 				<td><c:out value="${auction.user.username}"/></td>
 				<c:choose>
 				    <c:when test="${empty auction.auctionBids}">
-				       <td><c:out value="${auction.startPrice}"/></td>
+				       <td><fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${auction.startPrice}"/></td>
 				    </c:when>
 				    <c:otherwise>
-				        <td><c:out value="${auction.auctionBids[0].bidValue}"/></td>
+				        <td><fmt:formatNumber minFractionDigits="2" maxFractionDigits="2" value="${auction.auctionBids[0].bidValue}"/></td>
 				    </c:otherwise>
 				</c:choose>
 				
