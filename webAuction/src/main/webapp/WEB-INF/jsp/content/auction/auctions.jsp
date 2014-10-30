@@ -19,7 +19,6 @@
 	</thead>
 	<tbody>
 		<c:set var="auctionIndex" value="${0}"></c:set>
-		
 		<c:forEach items="${auctions}" var="auction">
 		<input type="hidden" id="endTime${auctionIndex}" name="endTime" value="${auction.endTime}"/>
 			<tr>
@@ -35,8 +34,7 @@
 				    </c:otherwise>
 				</c:choose>
 				
-				<td><fmt:formatDate type="both" 
-            dateStyle="medium" timeStyle="short" value="${auction.endTime}"/></td>
+				<td><fmt:formatDate type="both" dateStyle="medium" timeStyle="short" value="${auction.endTime}"/></td>
 				<td><span id="countdown${auctionIndex}"></span></td>
 				<sec:authorize access="hasRole('ROLE_ADMIN')">
 					<td class="highlightcolorBlack"><a href="<c:url value="/auctions/details/${auction.id}"/>" class="button"><fmt:message key="common.action.details" /></a></td>

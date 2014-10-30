@@ -55,7 +55,7 @@ public class Auction extends AbstractBaseEntity {
 	 * starting price
 	 */
 	@Column(nullable = false)
-	@NumberFormat(style = Style.CURRENCY)
+//	@NumberFormat(style = Style.CURRENCY)
 	@Min(1)
 	private double startPrice;
 	

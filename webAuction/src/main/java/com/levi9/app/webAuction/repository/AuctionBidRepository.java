@@ -30,6 +30,7 @@ public interface AuctionBidRepository extends Repository<AuctionBid, Long>{
      */
     List<AuctionBid> findAll();
 
+    
     /**
      * Save entity and return saved instance (with id set).
      *

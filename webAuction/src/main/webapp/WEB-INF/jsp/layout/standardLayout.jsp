@@ -33,6 +33,12 @@
 			<ul id="mainMenu">
 				<li class="highlightcolorBlack"><a class="dashBoard" href="<c:url value="/home"/>"><fmt:message key="common.menu.home"/></a></li>
 			    <li class="highlightcolorBlack"><a class="auctions" href="<c:url value="/auctions"/>"><fmt:message key="common.menu.auctions"/></a></li>
+				
+				<sec:authorize access="hasRole('ROLE_ADMIN')">
+					<li class="highlightcolorBlack"><a class="myAuctions" href="<c:url value="/auctions/myAuctions"/>"><fmt:message key="common.menu.myAuctions"/></a></li>
+					<li class="highlightcolorBlack"><a class="myBids" href="<c:url value="/auctions/myBids"/>"><fmt:message key="common.menu.myBids"/></a></li>
+					<li class="highlightcolorBlack"><a class="new" href="<c:url value="/auctions/new"/>" ><fmt:message key="page.auctions.action.addNewAuction" /></a></li>
+				</sec:authorize>
 				<li class="highlightcolorBlack"><a class="search" href="<c:url value="/search"/>"><fmt:message key="common.menu.search"/></a></li>
 			</ul>
 		</header>

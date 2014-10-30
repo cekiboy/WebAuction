@@ -16,6 +16,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -62,21 +63,62 @@ public class AuctionController {
 	private MailService mailService;
 	
 	
-	/**
-	 * Retrieves all auctions and returns them as model attribute <code>auctions</code>.
-	 * 
-	 * @return list of all auctions, as model attribute <code>auctions</code>
-	 */
-	@RequestMapping(method = RequestMethod.GET)
-//	@ModelAttribute("auctions")
-	public String get(Model model){
+	
+	
+	
+	private void deactivateExpiredAuctionsAndSendMail(){
 		List<Auction> expiredAuctions = auctionService.deactivateExpiredAuctions();
 		for (Auction auction : expiredAuctions){
 			if (!auction.getAuctionBids().isEmpty()){
 				mailService.sendBiggestBidSuccessMail(auction);
 			}
 		}
+	}
+	
+	
+	
+	/**
+	 * Retrieves all auctions and returns them as model attribute <code>auctions</code>.
+	 * 
+	 * @return list of all auctions, as model attribute <code>auctions</code>
+	 */
+	@RequestMapping(method = RequestMethod.GET)
+	public String get(Model model){
+		deactivateExpiredAuctionsAndSendMail();
 		List<Auction> auctions = auctionService.findByActiveTrue();
+		model.addAttribute("auctions", auctions);
+		return "auctions";
+	}
+	
+	/**
+	 * Retrieves all auctions posted by currently logged user and returns them as model attribute <code>auctions</code>.
+	 * 
+	 * @return list of all auctions posted by currently logged user, as model attribute <code>auctions</code>
+	 */
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@RequestMapping(value = "/myAuctions",method = RequestMethod.GET)
+	public String getUserAuctions(Model model, Principal principal){
+		String username = principal.getName();
+		deactivateExpiredAuctionsAndSendMail();
+		List<Auction> auctions = auctionService.findByActiveTrueAndUserUsername(username);
+		model.addAttribute("auctions", auctions);
+		return "auctions";
+	}
+	
+	
+	/**
+	 * Retrieves all auctions that currently logged user bidded on, and returns them as model attribute <code>auctions</code>.
+	 * 
+	 * @return list of all auctions that currently logged user bidded on, as model attribute <code>auctions</code>
+	 */
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@RequestMapping(value = "/myBids",method = RequestMethod.GET)
+	public String getUserBiddedAuctions(Model model, Principal principal){
+		String username = principal.getName();
+		Long userId = userService.findByUsername(username).getId();
+		deactivateExpiredAuctionsAndSendMail();
+		
+		List<Auction> auctions = auctionService.findByBidderId(userId);
 		model.addAttribute("auctions", auctions);
 		return "auctions";
 	}
@@ -89,6 +131,7 @@ public class AuctionController {
 	 * @return the name of the view for adding/editing a auction
 	 * 
 	 */
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
 	public String getNew (Model model){
 		model.addAttribute("auctionFilesDTO", new AuctionFilesDTO());
@@ -182,7 +225,10 @@ public class AuctionController {
 	 */
 	@RequestMapping(value = "/details/{id}", method = RequestMethod.GET)
 	public String details(@PathVariable Long id, Model model) throws  UnsupportedEncodingException {
-		System.out.println(auctionService.findOne(id).getImages().size()+"detalji");
+		Auction auction = auctionService.findOne(id);
+		if (auction==null || auction.isActive()==false){
+			return "redirect:..";
+		}
 		model.addAttribute("auction", auctionService.findOne(id));
 		model.addAttribute("auctionBid", new AuctionBid());
 		return "auctionDetails";

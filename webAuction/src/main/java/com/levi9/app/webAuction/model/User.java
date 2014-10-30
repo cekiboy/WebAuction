@@ -72,6 +72,9 @@ public class User extends AbstractBaseEntity{
 	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.EAGER, mappedBy="user")
 	private List<AuctionBid> auctionBids;
 	
+	/**
+	 * list of auctions by user
+	 */
 	@OneToMany(cascade = CascadeType.ALL , fetch = FetchType.EAGER, mappedBy="user")
 	private List<Auction> auctions;
 

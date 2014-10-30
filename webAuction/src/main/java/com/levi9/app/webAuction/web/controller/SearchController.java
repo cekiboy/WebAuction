@@ -72,10 +72,10 @@ public class SearchController {
 			String searchType = searchDTO.getSearchType();
 			String searchValue = searchDTO.getSearchValue();
 			if (searchType.equals("byUser")) {
-				auctions = auctionService.findByUserUsernameContaining(searchValue);
+				auctions = auctionService.findByActiveTrueAndUserUsername(searchValue);
 				}
 			else if(searchType.equals("byName")){
-				auctions = auctionService.findByNameContaining(searchValue);
+				auctions = auctionService.findByActiveTrueAndNameContaining(searchValue);
 			}
 			else {
 				Double searchPrice = 0.0;

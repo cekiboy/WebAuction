@@ -12,11 +12,4 @@ import com.levi9.app.webAuction.model.AuctionBid;
  */
 public interface AuctionBidService extends CrudService<AuctionBid>{
 
-	/**
-	 * Return all bids of one auction.
-	 * 
-	 * @param auctionId
-	 * @return list of bids associated with provided auction
-	 */
-	
 }

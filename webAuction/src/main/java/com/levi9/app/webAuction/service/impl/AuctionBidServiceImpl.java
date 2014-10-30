@@ -67,12 +67,7 @@ public class AuctionBidServiceImpl implements AuctionBidService{
 		
 	}
 
-	/**
-	 * @see com.levi9.app.webAuction.service.AuctionBidService#findByAuctionId(java.lang.Long)
-	 */
-//	@Override
-//	public List<AuctionBid> findByAuctionId(Long auctionId) {
-//		return auctionBidRepository.findAuctionBidsByAuctionIdByCurrentPriceDesc(auctionId);
-//	}
+
+	
 
 }

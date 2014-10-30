@@ -21,19 +21,26 @@ public interface AuctionService extends CrudService<Auction>{
      * @param name the auction name
      * @return list of auctions which name contains name
      */
-    List<Auction> findByNameContaining(String name);
+    List<Auction> findByActiveTrueAndNameContaining(String name);
 	
 	/**
      * Find and return auctions by user username.
      * @param username the user username
      * @return list of auctions from a user
      */
-    List<Auction> findByUserUsernameContaining(String username);
+    List<Auction> findByActiveTrueAndUserUsername(String username);
 	/**
      * Find and return auctions which are active but expired.
      * @return list of active expired auctions
      */
     List<Auction> findByActiveTrueAndEndTimeBefore(Date date);
+    
+    /**
+     * Find and return auctions by id of user who made a bid on it.
+     * @param bidderId the id of user who made a bid
+     * @return list of auctions 
+     */
+    List<Auction> findByBidderId(Long bidderId);
     
     /**
      * Deactivate auctions which are active but expired.
@@ -54,7 +61,7 @@ public interface AuctionService extends CrudService<Auction>{
 	 * @param userId
 	 * @return list of auctions associated with provided user
 	 */
-	List<Auction> findByUserId(Long userId);
+	List<Auction> findByActiveTrueAndUserId(Long userId);
 	
 	
 	/**

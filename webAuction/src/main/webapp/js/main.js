@@ -6,6 +6,8 @@ $(document).ready(function() {
 	
 	//clear input field of auction bid value
 	$('#bidValue').val("");
+	$('#startPrice').val("");
+	$('#buyOutPrice').val("");
 
     //add more file components if Add is clicked
     $('#addFile').click(function() {

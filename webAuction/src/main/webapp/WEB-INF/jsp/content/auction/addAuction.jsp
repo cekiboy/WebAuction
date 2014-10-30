@@ -14,10 +14,10 @@
 		<form:textarea path="auction.description" cssErrorClass="error" />
 		<form:errors path="auction.description" cssClass="errorMessage" /><br>
 		<form:label path="auction.startPrice"><fmt:message key="common.label.startPrice" /></form:label>
-		<form:input path="auction.startPrice" cssErrorClass="error" />
+		<form:input id="startPrice" path="auction.startPrice" cssErrorClass="error" />
 		<form:errors path="auction.startPrice" cssClass="errorMessage" /><br>
 		<form:label path="auction.buyOutPrice"><fmt:message key="common.label.buyOutPrice" /></form:label>
-		<form:input path="auction.buyOutPrice" cssErrorClass="error" />
+		<form:input id="buyOutPrice" path="auction.buyOutPrice" cssErrorClass="error" />
 		<form:errors path="auction.buyOutPrice" cssClass="errorMessage" /><br>
 		<label><fmt:message key="common.label.auctionDuration"/></label>
 		<select name="duration">

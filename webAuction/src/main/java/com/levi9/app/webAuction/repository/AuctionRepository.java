@@ -6,6 +6,7 @@ package com.levi9.app.webAuction.repository;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
 
 import com.levi9.app.webAuction.model.Auction;
@@ -34,21 +35,30 @@ public interface AuctionRepository extends Repository<Auction, Long>{
      * @param id the user id
      * @return list of auctions from a user
      */
-    List<Auction> findAuctionsByUserId(Long id);
+    List<Auction> findAuctionsByActiveTrueAndUserId(Long id);
     
     /**
      * Find and return auctions by user username.
      * @param username the user username
      * @return list of auctions from a user
      */
-    List<Auction> findAuctionsByUserUsernameContaining(String username);
+    List<Auction> findAuctionsByActiveTrueAndUserUsername(String username);
     
     /**
      * Find and return auctions by name.
      * @param name the auction name
      * @return list of auctions which name contains name
      */
-    List<Auction> findAuctionsByNameContaining(String name);
+    List<Auction> findAuctionsByActiveTrueAndNameContaining(String name);
+    
+    
+    /**
+     * Find and return auctions by id of user who made a bid on it.
+     * @param bidderId the id of user who made a bid
+     * @return list of auctions 
+     */
+    @Query(value = "SELECT * FROM webauction.auction WHERE active=true AND id in (SELECT auction_fk FROM webauction.auctionbid WHERE user_fk = ?1)", nativeQuery = true)
+    List<Auction> findAuctionsByBidderUsername(Long bidderId);
 	
 	/**
      * Find and return entity with passed id.
@@ -81,4 +91,6 @@ public interface AuctionRepository extends Repository<Auction, Long>{
      */
     void delete(Long id) throws IllegalArgumentException;
 	
+    
+    
 }

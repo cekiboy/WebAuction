@@ -11,6 +11,8 @@ import java.util.List;
 
 
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
@@ -62,8 +64,8 @@ public class AuctionServiceImpl implements AuctionService{
 	}
 
 	@Override
-	public List<Auction> findByUserId(Long userId) {
-		return auctionRepository.findAuctionsByUserId(userId);
+	public List<Auction> findByActiveTrueAndUserId(Long userId) {
+		return auctionRepository.findAuctionsByActiveTrueAndUserId(userId);
 	}
 
 	@Override
@@ -84,13 +86,13 @@ public class AuctionServiceImpl implements AuctionService{
 	}
 
 	@Override
-	public List<Auction> findByUserUsernameContaining(String username) {
-		return auctionRepository.findAuctionsByUserUsernameContaining(username);
+	public List<Auction> findByActiveTrueAndUserUsername(String username) {
+		return auctionRepository.findAuctionsByActiveTrueAndUserUsername(username);
 	}
 
 	@Override
-	public List<Auction> findByNameContaining(String name) {
-		return auctionRepository.findAuctionsByNameContaining(name);
+	public List<Auction> findByActiveTrueAndNameContaining(String name) {
+		return auctionRepository.findAuctionsByActiveTrueAndNameContaining(name);
 	}
 
 	@Override
@@ -103,6 +105,16 @@ public class AuctionServiceImpl implements AuctionService{
 			auctionRepository.save(auction);
 		}
 		return expiredAuctions;
+	}
+
+
+	/* 
+	 * @see com.levi9.app.webAuction.service.AuctionService#findByBidderUsername(java.lang.String)
+	 */
+	@Override
+	public List<Auction> findByBidderId(Long bidderId) {
+		List<Auction> auctions = auctionRepository.findAuctionsByBidderUsername(bidderId);
+		return auctions;
 	}
 
 	
