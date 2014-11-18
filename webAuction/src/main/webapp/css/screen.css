@@ -1,0 +1,542 @@
+/* CSS Normalize/Reset
+--------------------------------------------------------------*/
+/*! normalize.css v2.0.1 | MIT License | git.io/normalize */
+/* ==========================================================================
+HTML5 display definitions
+========================================================================== */
+/*
+* Corrects `block` display not defined in IE 8/9.
+*/
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+	display: block;
+}
+/*
+* Corrects `inline-block` display not defined in IE 8/9.
+*/
+audio,
+canvas,
+video {
+	display: inline-block;
+}
+/*
+* Prevents modern browsers from displaying `audio` without controls.
+* Remove excess height in iOS 5 devices.
+*/
+audio:not([controls]) {
+	display: none;
+	height: 0;
+}
+/*
+* Addresses styling for `hidden` attribute not present in IE 8/9.
+*/
+[hidden] {
+	display: none;
+}
+/* ==========================================================================
+Base
+========================================================================== */
+/*
+* 1. Sets default font family to sans-serif.
+* 2. Prevents iOS text size adjust after orientation change, without disabling
+*    user zoom.
+*/
+html {
+	font-family: sans-serif;
+	/* 1 */
+	-webkit-text-size-adjust: 100%;
+	/* 2 */
+	-ms-text-size-adjust: 100%;
+	/* 2 */
+	-webkit-font-smoothing: antialiased;
+}
+/*
+* Removes default margin.
+*/
+body {
+	margin: 0;
+}
+/* ==========================================================================
+Links
+========================================================================== */
+a {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+/*
+* Improves readability when focused and also mouse hovered in all browsers.
+*/
+a,
+a:hover,
+a:active,
+a:visited {
+	outline: none;
+}
+/* ==========================================================================
+Typography
+========================================================================== */
+/*
+* Addresses `h1` font sizes within `section` and `article` in Firefox 4+,
+* Safari 5, and Chrome.
+*/
+h1 {
+	font-size: 2em;
+}
+/*
+* Addresses styling not present in IE 8/9, Safari 5, and Chrome.
+*/
+abbr[title] {
+	border-bottom: 1px dotted;
+}
+/*
+* Addresses style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
+*/
+b,
+strong {
+	font-weight: bold;
+}
+/*
+* Addresses styling not present in Safari 5 and Chrome.
+*/
+dfn {
+	font-style: italic;
+}
+/*
+* Addresses styling not present in IE 8/9.
+*/
+mark {
+	background: #ff0;
+	color: #000;
+}
+/*
+* Corrects font family set oddly in Safari 5 and Chrome.
+*/
+code,
+kbd,
+pre,
+samp {
+	font-family: monospace, serif;
+	font-size: 1em;
+}
+/*
+* Improves readability of pre-formatted text in all browsers.
+*/
+pre {
+	white-space: pre;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+/*
+* Sets consistent quote types.
+*/
+q {
+	quotes: "\201C" "\201D" "\2018" "\2019";
+}
+/*
+* Addresses inconsistent and variable font size in all browsers.
+*/
+small {
+	font-size: 80%;
+}
+/*
+* Prevents `sub` and `sup` affecting `line-height` in all browsers.
+*/
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+sup {
+	top: -0.5em;
+}
+sub {
+	bottom: -0.25em;
+}
+/* ==========================================================================
+Embedded content
+========================================================================== */
+/*
+* Removes border when inside `a` element in IE 8/9.
+*/
+img {
+	border: 0;	
+	display: block;
+	margin: auto;
+}
+/*
+* Corrects overflow displayed oddly in IE 9.
+*/
+svg:not(:root) {
+	overflow: hidden;
+}
+/* ==========================================================================
+Figures
+========================================================================== */
+/*
+* Addresses margin not present in IE 8/9 and Safari 5.
+*/
+figure {
+	margin: 0;
+}
+/* ==========================================================================
+Forms
+========================================================================== */
+/*
+* Define consistent border, margin, and padding.
+*/
+fieldset {
+	border: none;
+	margin: 0 2px;
+	padding: 0.75em 0.625em;
+}
+/*
+* 1. Corrects color not being inherited in IE 8/9.
+* 2. Remove padding so people aren't caught out if they zero out fieldsets.
+*/
+legend {
+	border: 0;
+	/* 1 */
+	padding: 0;
+	/* 2 */
+}
+/*
+* 1. Corrects font family not being inherited in all browsers.
+* 2. Corrects font size not being inherited in all browsers.
+* 3. Addresses margins set differently in Firefox 4+, Safari 5, and Chrome
+*/
+button,
+input,
+select,
+textarea {
+	font-family: inherit;
+	/* 1 */
+	font-size: 100%;
+	/* 2 */
+	margin: 0;
+	/* 3 */
+}
+/*
+* Addresses Firefox 4+ setting `line-height` on `input` using `!important` in
+* the UA stylesheet.
+*/
+button,
+input {
+	line-height: normal;
+}
+/*
+* 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+*    and `video` controls.
+* 2. Corrects inability to style clickable `input` types in iOS.
+* 3. Improves usability and consistency of cursor style between image-type
+*    `input` and others.
+*/
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	-webkit-appearance: button;
+	/* 2 */
+	cursor: pointer;
+	/* 3 */
+}
+/*
+* Re-set default cursor for disabled elements.
+*/
+button[disabled],
+input[disabled],
+input[readonly] {
+	cursor: default;
+}
+/*
+* 1. Addresses box sizing set to `content-box` in IE 8/9.
+* 2. Removes excess padding in IE 8/9.
+*/
+input[type="checkbox"],
+input[type="radio"] {
+	box-sizing: border-box;
+	/* 1 */
+	padding: 0;
+	/* 2 */
+}
+/*
+* 1. Addresses `appearance` set to `searchfield` in Safari 5 and Chrome.
+* 2. Addresses `box-sizing` set to `border-box` in Safari 5 and Chrome
+*    (include `-moz` to future-proof).
+*/
+input[type="search"] {
+	-webkit-appearance: textfield;
+	/* 1 */
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	/* 2 */
+	box-sizing: content-box;
+}
+/*
+* Removes inner padding and search cancel button in Safari 5 and Chrome
+* on OS X.
+*/
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+/*
+* Removes inner padding and border in Firefox 4+.
+*/
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+/*
+* 1. Removes default vertical scrollbar in IE 8/9.
+* 2. Improves readability and alignment in all browsers.
+*/
+textarea {
+	overflow: auto;
+	/* 1 */
+	vertical-align: top;
+	/* 2 */
+}
+/* ==========================================================================
+Tables
+========================================================================== */
+/*
+* Remove most spacing between table cells.
+*/
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* ==========================================================================
+Layout
+========================================================================== */
+html,
+body {
+	height: 100%;
+}
+body {
+	font: 14px/1.5 Helvetica,Arial,sans-serif;
+}
+header {
+	box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.2);
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+header div.top {
+	border-bottom: 1px solid #666666;
+	display: block;
+	height: 34px;
+	line-height: 34px;
+}
+header div.top a {
+	color: #FFFFFF;
+	font-size: 13px;
+	line-height: 34px;
+	float: right;
+	font-weight: bold;
+	padding: 0 16px;
+}
+header h1 {
+	-moz-box-sizing: border-box;
+	background: url("images/menu/main-menu-bg-repeat-x.jpg") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+	border-bottom: 1px solid #CCCCCC;
+	height: 61px;
+	margin: 0;
+	text-align: center;
+	font-size: 48px;
+	line-height: 61px;
+}
+header ul#mainMenu {
+	list-style: none outside none;
+	margin: 24px auto 0;
+	padding: 0;
+	min-width: 70%;
+}
+header ul#mainMenu li {
+	display: inline-block;
+	text-align: center;
+}
+header ul#mainMenu li a {
+	border-radius: 5px;
+	color: #000000;
+	display: block;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 45px;
+	height: 45px;
+	text-decoration: none;
+	padding: 0px 32px;
+}
+header ul#mainMenu li a:hover {
+	text-decoration: none;
+}
+
+h2 {
+
+	text-align: center;
+	font-size: 35px;
+	line-height: 20px;
+}
+
+#mainContent {
+	width: 85%;
+	margin: 24px auto 0;
+}
+table.dataTable {
+	width: 100%;
+}
+table.dataTable td {
+	text-align: center;
+	vertical-align: middle;
+	border-top: 1px solid #CCCCCC;
+}
+form label {
+	width: 25%;
+	margin-right: 16px;
+	display: inline-block;
+	font-weight: bold;
+	margin: 15px 0px;
+}
+form td label {
+	width: 100%;
+}
+form select,
+form input[type="text"],
+form input[type="password"] {
+	-moz-box-sizing: border-box;
+	background: none repeat scroll 0 0 #FFFFFF;
+	border: 1px solid #CCCCCC;
+	border-radius: 3px;
+	color: #999999;
+	display: inline-block;
+	line-height: 15px;
+	min-height: 20px;
+	padding: 7px 10px;
+	margin: 8px 0px;
+	width: 220px;
+}
+form input[readonly] {
+	background-color: #EEEEEE;
+}
+form select.multiRowSelect {
+	min-width: 150px;
+}
+form .error {
+	border: 1px solid #FF0000 !important;
+}
+form .errorMessage {
+	color: #FF0000;
+	font-weight: bold;
+}
+footer {
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 2;
+	text-align: center;
+}
+
+div .mainDiv {
+	width: 100%; 
+	height: 100%; 
+	float: left;
+}
+
+div .left{
+	width: 60%;
+	height: 100%;
+	float: left;
+	margin-bottom: 40px;	
+}
+
+div .upperRight {
+	width: 35%; 
+	height: 50%; 
+	float: right;
+}
+
+div .lowerRight {
+	width: 30%; 
+	height: 50%; 
+	float: right;
+	margin-top: 50px;
+}
+div .bordered {
+/* 	border: 1px solid #CCCCCC; */
+	padding-top: 10px;
+	margin-top: 25px;
+}
+ .scroll {
+	overflow-y: scroll;
+	height: 120px;
+	border-bottom: 10px;
+}
+/* ==========================================================================
+Styling
+========================================================================== */
+.darkNoise {
+	background: url("images/textures/dark.jpg") repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.highlightcolorBlack .active,
+.highlightcolorBlack :hover,
+.highlightcolorBlack :active {
+	background: url("images/textures/dark.jpg") repeat scroll 0 0 rgba(0, 0, 0, 0);
+	color: #FFFFFF !important;
+}
+.button {
+	display: inline-block;
+	-moz-box-sizing: border-box;
+	border-bottom: none;
+	border-left: none;
+	border-right: none;
+	border-top: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
+	box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.2);
+	background-color: #FFFFFF;
+	color: #000000;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 40px;
+	height: 40px;
+	letter-spacing: 1px;
+	padding-left: 12px;
+	padding-right: 12px;
+	text-decoration: none;
+	margin: 12px 8px 12px 12px;
+}
+.button:hover {
+	text-decoration: none;
+}
+/* button.button { */
+/* 	margin-left: 12px; */
+/* } */
+
+.imageThumbnail {
+	width: 70px !important;
+	height: 70px !important;
+}
+
+.imageDetails{
+	border: 4px solid #444;
+	padding: 1px;
+	max-width: 400px !important;
+	max-height: 350px !important;
+}
+
+
